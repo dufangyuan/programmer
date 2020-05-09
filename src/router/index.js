@@ -4,17 +4,19 @@ import Router from 'vue-router'
 import page from '@/views/ly/page'
 // import top from '@/components/top'
 import submit from '@/views/ly/submit'
+import HelloWorld from '@/components/HelloWorld'
+import login from '@/views/dfy/login'
 
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+  mode:"history",//去掉url中的#符号
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'HelloWorld',
-    //   component: HelloWorld
-    // },
+    {
+     
+      path: '/',
+      redirect:"login"
+    },
     {
       path: '/page',
       name: 'page',
@@ -30,5 +32,11 @@ export default new Router({
       name: 'submit',
       component: submit
     },
+    {
+      //引入路径
+      path: '/login',
+      name: 'login',
+      component: login
+    }
   ]
 })
