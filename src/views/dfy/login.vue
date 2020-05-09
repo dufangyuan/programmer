@@ -14,7 +14,7 @@
             </template>
         </el-input>
       </el-form-item>
-       <el-form-item label="有户名" prop="username">
+       <el-form-item label="用户名" prop="username"> 
         <el-input v-model="loginform.username"></el-input>
       </el-form-item>
            <el-form-item label="密码" prop="password">
