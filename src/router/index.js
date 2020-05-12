@@ -6,6 +6,7 @@ import page from '@/views/ly/page'
 import submit from '@/views/ly/submit'
 import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/dfy/login'
+import gerenziliao from '@/views/ly/gerenziliao'
 
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
       path: '/page',
       name: 'page',
       component: page
+    },
+    {
+      path: '/gerenziliao',
+      name: 'gerenziliao',
+      component: gerenziliao
     },
     // {
     //   path: '/top',

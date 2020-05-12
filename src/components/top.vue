@@ -42,10 +42,10 @@
 export default {
 data(){
         return {
-            imgUrl:require("../assets/风车.svg"),
-             imgUrl1:require("../assets/数据.svg"),
-             imgUrl2:require("../assets/招聘岗位.svg"),
-             imgUrl3:require("../assets/解决方案.svg"),
+            imgUrl:require("../assets/fengche.svg"),
+             imgUrl1:require("../assets/shuju.svg"),
+             imgUrl2:require("../assets/zhaopin.svg"),
+             imgUrl3:require("../assets/jiejue.svg"),
         }
 }
 }
