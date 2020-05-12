@@ -17,6 +17,13 @@ module.exports = {
         pathRewrite:{
           '^/dfy':'http://192.168.1.108:8000'
         }
+      },
+      'wb':{
+        target:'http://192.168.1.108:8000',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/wb':'http://192.168.1.108:8000'
+        }
       }
     },
 

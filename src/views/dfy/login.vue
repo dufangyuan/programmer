@@ -15,7 +15,7 @@
         </el-input>
       </el-form-item>
        <el-form-item label="用户名" prop="username">
-        <el-input v-model="loginform.username" placeholder="请输入用户名"></el-input>
+        <el-input v-model="loginform.username"></el-input>
       </el-form-item>
            <el-form-item label="密码" prop="password1">
         <el-input v-model="loginform.password1" placeholder="请输入密码" type="password"><i class="el-icon-view"></i></el-input>
@@ -44,11 +44,10 @@ export default {
       loginrules:{
             email:[ 
                 { required: true, message: '请输入邮箱', trigger: 'blur' },
-                {pattern:  /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/, message: '请输入正确的邮箱格式',trigger: 'blur'}
+                {pattern: /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, message: '邮箱格式错误'}
             ],
             yzm:[
                  { required: true, message: '请输入验证码', trigger: 'blur' },
-
             ],
             username:[
                  { required: true, message: '请输入用户名', trigger: 'blur' },
@@ -58,6 +57,11 @@ export default {
             ]
       }
     };
+  },
+  created(){
+    this.$axios.get("").then(function(res){
+      console.log(res);
+    })
   },
   methods: {
      submitForm(formName) {
