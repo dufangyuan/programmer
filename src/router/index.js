@@ -5,6 +5,8 @@ import login from '@/views/dfy/login'
 import gerenziliao from '@/views/ly/gerenziliao'
 import dl from '@/views/gs/dl'
 import zhuce from '@/views/gs/zhuce'
+import page from '@/views/ly/page'
+import submit from '@/views/ly/submit'
 Vue.use(Router)
 
 export default new Router({

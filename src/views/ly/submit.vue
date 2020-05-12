@@ -51,7 +51,7 @@ export default {
       }
     };
     return {
-      abc: require("../../assets/红旗.svg"),
+      abc: require("../../assets/hongqi.svg"),
       formaa: {
         email: "",
         pass: ""

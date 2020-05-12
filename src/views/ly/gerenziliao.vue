@@ -31,17 +31,17 @@
       </el-tabs>
       </div>
     </el-main>
-    <bottom></bottom>
+    <!-- <bottom></bottom> -->
   </div>
 </template>
 
 <script>
-import top from "../../components/top";
-import bottom from "../../components/bottom";
+import top from "@/components/top";
+// import bottom from "@/components/bottom";
 export default {
   components: {
     top,
-    bottom
+    // bottom
   },
   data() {
     return {

@@ -216,7 +216,7 @@ export default {
     return {
       op2: require("../../assets/duigou.svg"),
       imgArr:[
-             require("../../assets/lunbo.png"),
+            //  require("../../assets/lunbo.png"),
       ]
     };
   },

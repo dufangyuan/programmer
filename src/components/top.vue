@@ -47,7 +47,7 @@ data(){
              imgUrl2:require("../assets/zhaopin.svg"),
              imgUrl3:require("../assets/jiejue.svg"),
         }
-}
+           }
 }
 </script>
 
