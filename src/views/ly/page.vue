@@ -202,6 +202,7 @@
     <bottom></bottom>
   </div>
 </template>
+<script></script>
 
 <script>
 import top from "../../components/top";

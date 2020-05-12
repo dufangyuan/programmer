@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-import page from '@/views/ly/page'
-// import top from '@/components/top'
-import submit from '@/views/ly/submit'
 import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/dfy/login'
 import gerenziliao from '@/views/ly/gerenziliao'
-
+import dl from '@/views/gs/dl'
+import zhuce from '@/views/gs/zhuce'
 Vue.use(Router)
 
 export default new Router({
@@ -43,6 +40,19 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login
-    }
+    },
+    {
+      //引入路径
+      path: '/dl',
+      name: 'dl',
+      component: dl
+  },
+  {
+      //引入路径
+      path: '/zhuce',
+      name: 'zhuce',
+      component: zhuce
+  }
+
   ]
 })
