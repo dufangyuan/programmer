@@ -3,7 +3,7 @@
     <h1>注册新账号</h1>
     <el-form ref="loginform" :model="loginform" :rules="loginrules" label-width="80px">
       <el-form-item label="邮箱" prop="email">
-        <el-input v-model="loginform.email" placeholder="请输入邮箱" @mouseout="yanzheng()"></el-input>
+        <el-input v-model="loginform.email" placeholder="请输入邮箱"></el-input>
       </el-form-item>
       <el-form-item label="验证码" prop="yzm">
         <el-input placeholder="请输入验证码" v-model="loginform.yzm">
