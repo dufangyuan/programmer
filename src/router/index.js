@@ -2,8 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/dfy/login'
+import gerenziliao from '@/views/ly/gerenziliao'
 import dl from '@/views/gs/dl'
 import zhuce from '@/views/gs/zhuce'
+import page from '@/views/gs/page'
+import submit from '@/views/ly/submit'
+import IssueDemand from '@/views/dfy/IssueDemand'
+import project from '@/views/dfy/project'
+import wanshan from '@/views/dfy/wanshan'
+import programmer from '@/views/dfy/programmer'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +36,51 @@ export default new Router({
             path: '/zhuce',
             name: 'zhuce',
             component: zhuce
-        }
-    ]
+        },
+        {
+          path: '/page',
+          name: 'page',
+          component: page
+        },
+        {
+          path: '/gerenziliao',
+          name: 'gerenziliao',
+          component: gerenziliao
+        },
+   
+    // {
+    //   path: '/top',
+    //   name: 'top',
+    //   component: top
+    // }
+    {
+      path: '/submit',
+      name: 'submit',
+      component: submit
+    },
+    {
+      path: '/IssueDemand',
+      name: 'IssueDemand',
+      component: IssueDemand
+    },
+    {
+      path: '/project',
+      name: 'project',
+      component: project
+    },
+    {
+      path: '/wanshan',
+      name: 'wanshan',
+      component: wanshan
+    },
+    {
+      path: '/programmer',
+      name: 'programmer',
+      component: programmer
+    },
+     {
+      path: '/test',
+      component: () => import('@/views/dfy/IssueDemand1')
+    }
+  ]
 })

@@ -11,18 +11,25 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      'dfy':{
-        target:'http://192.168.1.108:8000',
+      '/dfy':{
+        target:'http://106.13.164.214:8000',
         changeOrigin:true,
         pathRewrite:{
-          '^/dfy':'http://192.168.1.108:8000'
+          '^/dfy':'http://106.13.164.214:8000'
         }
       },
-      'wb':{
-        target:'http://192.168.1.108:8000',
+      '/wb':{
+        target:'http://106.13.164.214:8000',
         changeOrigin:true,
         pathRewrite:{
-          '^/wb':'http://192.168.1.108:8000'
+          '^/wb':'http://106.13.164.214:8000'
+        }
+      },
+      '/api':{
+        target:'http://106.13.164.214:8000',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/api':'http://106.13.164.214:8000'
         }
       }
     },

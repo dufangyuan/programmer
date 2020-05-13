@@ -3,25 +3,22 @@
     <el-row type="flex" justify="center">
       <el-col :span="12">
         <h3 style="color: #303133;text-align:center;margin-top:15px;margin-bottom:15px">发布新项目需求</h3>
-        <el-form :model="demand" :rules="rules" ref="demandForm" label-position="top" class="demo-ruleForm">
+        <el-form :model="demandForm" :rules="rules" ref="demandForm" label-position="top" class="demo-ruleForm">
           <el-form-item label="项目名称 " prop="demandName">
-            <el-input v-model="demand.demandName" placeholder="请输入内容"></el-input>
+            <el-input v-model="demandForm.demandName" placeholder="请输入项目名称"></el-input>
           </el-form-item>
           <el-form-item label="我的项目类型" prop="demandType">
-            <el-radio-group v-model="demand.demandType">
-              <el-radio-button :label="1">Android</el-radio-button>
-              <el-radio-button :label="2">iOS</el-radio-button>
-              <el-radio-button :label="3">PC网站</el-radio-button>
-              <el-radio-button :label="4">微信端开发</el-radio-button>
-              <el-radio-button :label="5">Html5</el-radio-button>
-              <el-radio-button :label="6">其他</el-radio-button>
-            </el-radio-group>
+            <el-checkbox-group v-model="demandForm.demandType">
+              <el-checkbox label="Android"></el-checkbox>
+              <el-checkbox label="iOS"></el-checkbox>
+              <el-checkbox label="pc网站"></el-checkbox>
+            </el-checkbox-group>
           </el-form-item>
           <el-form-item label="项目预算（元）" prop="demandBudget">
-            <el-input v-model.number="demand.demandBudget" placeholder="请输入内容" autocomplete="off"></el-input>
+            <el-input v-model="demandForm.demandBudget" placeholder="请输入你的预算资金" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="我的项目介绍" prop="demandDetail">
-            <el-input type="textarea" :rows="3" placeholder="请输入内容" v-model="demand.demandDetail"></el-input>
+            <el-input type="textarea" :rows="3" placeholder="请对项目做简单介绍" v-model="demandForm.demandDetail"></el-input>
           </el-form-item>
           <el-form-item>
             <el-upload  class="upload-demo"  ref="upload" action  :http-request="fileupload">
@@ -41,37 +38,31 @@
 
 
 <script>
-
 export default {
   data() {
     return {
-      demand: {
+      demandForm: {
         demandName: '',
-        demandType: 'Android',
+        demandType: [],
         demandBudget: '',
         demandDetail: '',
-        demandFile: []
+        demandFile: {}
       },
-      filelist:{},
       rules: {
         demandName: [{required: true, message: '项目名称不能为空', trigger: 'blur'}],
         demandType: [{required: true, message: '项目类型必选', trigger: 'blur'}],
         demandBudget: [
           {required: true, message: '项目预算不能为空', trigger: 'blur'},
-          { type: 'number', message: '项目预算必须为数字值', trigger: 'change'}
+          // { type: 'number', message: '项目预算必须为数字值', trigger: 'change'}
         ],
         demandDetail: [{required: true, message: '项目描述不能为空', trigger: 'blur'}]
       }
     }
   },
   methods: {
-    imgfile(aa){
-      console.log(aa)
-      this.filelist=aa.file;
-    },
     fileupload(par){
       console.log(par);
-      this.filelist=par.file;
+      this.demandForm.demandFile=par.file;
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
@@ -79,12 +70,12 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         let fromdata=new FormData()
-        fromdata.append("demandFile",this.filelist)
-        fromdata.append("demandBudget",this.demand.demandBudget)
-        fromdata.append("demandDetail",this.demand.demandDetail)
-        fromdata.append("demandName",this.demand.demandName)
-        fromdata.append("demandType",this.demand.demandType)
-        this.$axios.post('/dfy/demand/demand',fromdata).then(res=>{
+        fromdata.append("demandFile",this.demandForm.demandFile)
+        fromdata.append("demandBudget",this.demandForm.demandBudget)
+        fromdata.append("demandDetail",this.demandForm.demandDetail)
+        fromdata.append("demandName",this.demandForm.demandName)
+        fromdata.append("demandType",this.demandForm.demandType)
+        this.$axios.post('/dfy/demand/demand', fromdata).then(res=>{
           console.log(res);
         })
       })
@@ -95,9 +86,5 @@ export default {
 
 
 <style scoped>
-/* .el-radio-button{
-  width:50px;
-  height:80px;
-  
-} */
+
 </style>

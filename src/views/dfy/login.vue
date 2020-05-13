@@ -15,7 +15,7 @@
         </el-input>
       </el-form-item>
        <el-form-item label="用户名" prop="username">
-        <el-input v-model="loginform.username"></el-input>
+        <el-input v-model="loginform.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
            <el-form-item label="密码" prop="password1">
         <el-input v-model="loginform.password1" placeholder="请输入密码" type="password"><i class="el-icon-view"></i></el-input>
