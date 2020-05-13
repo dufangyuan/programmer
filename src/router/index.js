@@ -6,6 +6,7 @@ import gerenziliao from '@/views/ly/gerenziliao'
 import dl from '@/views/gs/dl'
 import zhuce from '@/views/gs/zhuce'
 import page from '@/views/ly/page'
+import muban from '@/views/ly/muban'
 import submit from '@/views/ly/submit'
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
       path: '/page',
       name: 'page',
       component: page
+    },
+    {
+      path: '/muban',
+      name: 'muban',
+      component: muban
     },
     {
       path: '/gerenziliao',

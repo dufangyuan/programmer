@@ -10,7 +10,7 @@
         <li class="navigation page"> <a href="">首页</a></li>
          <li class="navigation page"><a href="">云端工作</a></li>
           <li class="navigation page"><a href="">程序员</a></li>
-          <el-dropdown>
+          <el-dropdown class="st">
   <span class="el-dropdown-link">
     更多服务<i class="el-icon-arrow-down el-icon--right"></i>
   </span>
@@ -102,5 +102,7 @@ data(){
   .el-icon-arrow-down {
     font-size: 12px;
   }
-  
+  .st{
+    margin-top: 0px;
+  }
 </style>
