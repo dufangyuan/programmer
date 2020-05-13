@@ -11,6 +11,8 @@ import IssueDemand from '@/views/dfy/IssueDemand'
 import project from '@/views/dfy/project'
 import wanshan from '@/views/dfy/wanshan'
 import programmer from '@/views/dfy/programmer'
+import fbgc from '@/views/gs/fbgc'
+import muban from '@/views/ly/muban'
 Vue.use(Router)
 
 export default new Router({
@@ -78,6 +80,21 @@ export default new Router({
       name: 'programmer',
       component: programmer
     },
+    {
+      path: '/fbgc',
+      name: 'fbgc',
+      component: fbgc
+  },
+  {
+    path: '/muban',
+    name: 'muban',
+    component: muban
+},
+{
+    path: '/gerenziliao',
+    name: 'gerenziliao',
+    component: gerenziliao
+},
      {
       path: '/test',
       component: () => import('@/views/dfy/IssueDemand1')

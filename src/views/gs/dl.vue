@@ -9,14 +9,14 @@
                <el-input v-model="dlform.email"  clearable></el-input>
             </el-form-item>
             <el-form-item label="密码:" prop="mima" >
-                <el-input v-model="dlform.mima" clearable show-password></el-input>
+                <el-input v-model="dlform.mima" clearable show-password @keyup.enter.native="keyupEnter"></el-input>
             </el-form-item>
                 <!-- <el-button type="primary" size="medium"  @click="submitForm('dlform')">立即登录</el-button> -->
                 <!-- <el-button type="success" size="medium" plain @click="submitForm('dlform')">立即注册</el-button> -->
                
         </el-form>
         </div>
-         <div class="ljdl" @click="submitForm()">登录</div>
+         <div class="ljdl" @click="submitForm()" >登录</div>
          <h4>没有账号？<el-button type="text" @click="gozhuce">去注册</el-button></h4>
     </div>
     </div>
@@ -61,12 +61,20 @@ export default {
     }
     
   },
+   created(){
+       this.keyupEnter()
+    },
   methods:{
      gozhuce(){
          this.$router.push('/zhuce')
      },
+    //  点击登录
      submitForm(){
-         var formdata=new FormData()
+         this.sub()
+     },
+    //  最后提交登录
+     sub(){
+        var formdata=new FormData()
          this.axios.post('/wb/login',{
             email: this.dlform.email,
             password: this.dlform.mima,
@@ -79,13 +87,28 @@ export default {
                 type: 'success'
                 });
              }else{
-                 alert('账号或密码输入错误')
+               this.$message.error('账号或密码输入错误');
+               this.$notify({
+                  title: '提示',
+                  message: '账号或密码输入错误',
+                  duration: 3000,
+                  offset: 100
+                });
              }
          })
      },
-
+    //  键盘监听事件
+     keyupEnter(){
+      let that = this;
+      document.onkeydown = function (e) {
+        let key = window.event.keyCode;
+        if (key === 13){
+          that.sub()
+        }
+      }
+    },
   },
-
+   
 }
 </script>
 
@@ -145,6 +168,7 @@ color: rgba(243, 43, 17, 0.8);
     background-color: rgba(233, 79, 58, 0.8);
     margin: 5px 120px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .ljdl:hover{
     background-color: rgba(243, 43, 17, 0.8);

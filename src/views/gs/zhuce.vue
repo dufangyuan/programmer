@@ -3,7 +3,7 @@
   <div class="zhucebox">
     <h2>会员注册</h2>
     <div class="minbox">
-      <el-form ref="dlform" :model="zcform" :rules="zcrules" label-width="90px" hide-required-asterisk=false
+      <el-form ref="dlform" :model="zcform" :rules="zcrules" label-width="90px" :hide-required-asterisk=true
       >
         <el-form-item label="邮箱:" prop="email" >
           <el-input v-model="zcform.email" clearable placeholder="请输入邮箱"></el-input>
@@ -11,7 +11,8 @@
         <el-form-item label="验证码:" prop="yzm">
           <el-input placeholder="请输入验证码" v-model="zcform.yzm">
             <template slot="append">
-              <el-button type="text" @click="getyzm()">获取验证码</el-button>
+              <el-button type="text" @click="getCode('dlform', 'email')" v-show="state"> 获取验证码</el-button>
+              <el-button type="text"  v-show="!state" disabled>{{count}}s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-button>
             </template>
           </el-input>
         </el-form-item>
@@ -36,6 +37,7 @@
   </div>
 </template>
 <script>
+const TIME_COUNT = 60 // 倒计时的时间
 export default {
   data() {
     var validatePass = (rule, value, callback) => {
@@ -84,8 +86,14 @@ export default {
         pass: "",
         checkPass: "",
         username:"",
-        yzm: ""
+        yzm: "",
+        show:true,
+        count: '',
       },
+        timer: null,
+
+      count:60,
+      state:true,
       zcrules: {
         email: [{ validator: validateEmail, trigger: "blur" }],
         pass: [
@@ -111,18 +119,49 @@ export default {
   methods: {
     gologin(){
       this.$router.push('/dl')
+      target="_blank"
     },
+    // 验证码倒计时
+    getCode (formName, fieldName) {
+        this.$refs[formName].validateField(fieldName, (valid)=>{
+          if (valid) {
+             this.$message.warning('请填写正确邮箱');
+             this.$notify({
+              title: '提示',
+              message: '请填写正确邮箱',
+              // duration: 0
+              offset: 100
+            })
+          } else {
+            this.getyzm()
+        if (!this.timer) {
+        this.count = TIME_COUNT
+        this.state = false;
+            
+
+        this.timer = setInterval(() => {
+          if (this.count > 0 && this.count <= TIME_COUNT) {
+            this.count--;
+            console.log(this.count)
+          } else {
+            this.state = true
+            clearInterval(this.timer)
+            this.timer = null
+          }
+        }, 1000)
+      }
+          }
+        })
+  },
+    // 发送验证码
     getyzm() {
-      if(this.zcform.email==''){
-        alert('请输入邮箱')
-      }else{
       this.axios.post('/wb/sendEmail',{
         email:this.zcform.email
       }).then(res=>{
         console.log(res);
       })
-      }
     },
+    // 最后传参
     register(){
       var formdata=new FormData()
       this.axios.post('/wb/register',{
@@ -132,6 +171,7 @@ export default {
         username: this.zcform.username
       }).then(res=>{
         console.log(res);
+         this.$message.success('注册成功');
       })
     },
   }
