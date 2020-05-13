@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/dfy/login'
 import dl from '@/views/gs/dl'
 import zhuce from '@/views/gs/zhuce'
+import fbgc from '@/views/gs/fbgc'
+
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +31,12 @@ export default new Router({
             path: '/zhuce',
             name: 'zhuce',
             component: zhuce
+        },
+        {
+            //引入路径
+            path: '/fbgc',
+            name: 'fbgc',
+            component: fbgc
         }
     ]
 })

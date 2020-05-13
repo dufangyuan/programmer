@@ -10,7 +10,7 @@ Vue.use(VueAxios, Axios)
 Vue.config.productionTip = false
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import { prototype } from 'extract-text-webpack-plugin'
+// import { prototype } from 'extract-text-webpack-plugin'
 Vue.use(ElementUI);
 /* eslint-disable no-new */
 new Vue({
