@@ -3,7 +3,7 @@
     <div class="dl_box"> 
         <h2>请登录</h2>
         <div class="fuji">
-        <el-form ref="dlform" :model="dlform" :rules="dlrules"  label-width="80px" hide-required-asterisk=false>
+        <el-form ref="dlform" :model="dlform" :rules="dlrules"  label-width="80px" :hide-required-asterisk=true>
 
             <el-form-item label="邮箱:"  prop="email" >
                <el-input v-model="dlform.email"  clearable></el-input>
@@ -53,7 +53,7 @@ export default {
         email: [{ validator: validateEmail, trigger: "blur" }],
         mima:[
             {required: true, message:"请输入密码",trigger:'blur'},
-            {min:8,max:16,message:'密码长度在8 到 16个字符之间',trigger: 'blur'}
+            {min:4,max:10,message:'密码长度在8 到 16个字符之间',trigger: 'blur'}
         
         ]
           
