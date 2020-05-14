@@ -18,6 +18,13 @@ module.exports = {
           '^/dfy':'http://106.13.164.214:8000'
         }
       },
+      '/kz':{
+        target:'http://192.168.1.121:9999',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/kz':'http://192.168.1.121:9999'
+        }
+      },
       '/wb':{
         target:'http://106.13.164.214:8000',
         changeOrigin:true,
