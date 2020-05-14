@@ -9,7 +9,6 @@
         </div>
         <div class="box">
             <div v-if="step==0">
-                <people></people>
             </div>
             <div v-if="step==1">
                
@@ -32,7 +31,6 @@ import people from './perpleinfo'
 
     export default {
         components:{
-            people
         },
         data(){
             return {

@@ -6,6 +6,7 @@ import gerenziliao from '@/views/ly/gerenziliao'
 import dl from '@/views/gs/dl'
 import zhuce from '@/views/gs/zhuce'
 import fbgc from '@/views/gs/fbgc'
+import xmxq from '@/views/gs/xmxq'
 import page from '@/views/ly/page'
 import muban from '@/views/ly/muban'
 import submit from '@/views/ly/submit'
@@ -34,6 +35,12 @@ export default new Router({
             path: '/zhuce',
             name: 'zhuce',
             component: zhuce
+        },
+        {
+            //引入路径
+            path: '/xmxq',
+            name: 'xmxq',
+            component: xmxq
         },
         {
             //引入路径
