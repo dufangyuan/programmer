@@ -70,7 +70,7 @@ export default {
     };
   },
   methods: {
-    onSubmit(formName) {
+    onSubmit() {
       this.$refs[formName].validate(valid => {
         if (valid) {
           alert("submit!");

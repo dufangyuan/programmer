@@ -3,7 +3,7 @@
     <top></top>
     <el-main style="height:1550px;">
         <div class="inn-work">
-    <el-tabs :tab-position="tabPosition" style="height: 500px;">
+    <el-tabs :tab-position="tabPosition" style="height: 700px;">
     <el-tab-pane label="用户管理">
       <div class="navtop">
             <div :class="step==0  ? class1 : class2" @click="changecolor(0)">待办任务(0)</div>
@@ -67,12 +67,12 @@
                  <people1></people1>
             </div>
             <div v-if="step==2">
-                <people2></people2>
+                <people6></people6>
             </div>
             <div v-if="step==3">
-                <people3></people3>
+                <people7></people7>
             </div>
-            
+
         </div>
     </el-tab-pane>
     <el-tab-pane label="API交易平台"></el-tab-pane>
@@ -90,6 +90,8 @@ import people1 from "./pintai";
 import people2 from "./guyong";
 import people3 from "./yunduan";
 import people4 from "./jishuxinyong";
+import people6 from "./shiminggerenxinxi";
+import people7 from "./xiugaimima";
 import top from "@/components/top";
 export default {
   components: {
@@ -99,6 +101,8 @@ export default {
     people2,
     people3,
     people4,
+    people6,
+     people7,
     },
   data() {
     return {
