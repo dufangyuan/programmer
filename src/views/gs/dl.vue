@@ -53,7 +53,7 @@ export default {
         email: [{ validator: validateEmail, trigger: "blur" }],
         mima:[
             {required: true, message:"请输入密码",trigger:'blur'},
-            {min:8,max:16,message:'密码长度在8 到 16个字符之间',trigger: 'blur'}
+            {min:4,max:10,message:'密码长度在8 到 16个字符之间',trigger: 'blur'}
         
         ]
           

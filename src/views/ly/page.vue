@@ -205,8 +205,8 @@
 <script></script>
 
 <script>
-import top from "../../components/top";
-import bottom from "../../components/bottom";
+// import top from "../../components/top";
+// import bottom from "../../components/bottom";
 export default {
   components: {
     top,

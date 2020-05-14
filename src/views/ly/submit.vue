@@ -33,13 +33,13 @@
   </div>
 </template>
 <script>
-import top from "../../components/top";
-import bottom from "../../components/bottom";
+// import top from "../../components/top";
+// import bottom from "../../components/bottom";
 export default {
-  components: {
-    top,
-    bottom
-  },
+  // components: {
+  //   top,
+  //   bottom
+  // },
   data() {
     var validatePass = (rule, value, callback) => {
       if (value === "") {
