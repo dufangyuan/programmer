@@ -19,10 +19,10 @@ module.exports = {
                 }
             },
             '/kz': {
-                target: 'http://192.168.1.121:9999',
+                target: 'http://192.168.1.100:9999',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/kz': 'http://192.168.1.121:9999'
+                    '^/kz': 'http://192.168.1.100:9999'
                 }
             },
             '/wb': {

@@ -210,7 +210,6 @@
 export default {
   components: {
     top,
-    bottom
   },
   data() {
     return {
