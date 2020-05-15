@@ -68,11 +68,6 @@ export default new Router({
             component: gerenziliao
         },
         {
-            path: '/page',
-            name: 'page',
-            component: page
-        },
-        {
             path: '/gerenziliao',
             name: 'gerenziliao',
             component: gerenziliao
