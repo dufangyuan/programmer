@@ -29,101 +29,73 @@ export default new Router({
             component: login
         },
         {
-            //引入路径
+            //登录
             path: '/dl',
             name: 'dl',
             component: dl
         },
         {
-            //引入路径
+            //注册
             path: '/zhuce',
             name: 'zhuce',
             component: zhuce
         },
         {
-            //引入路径
+            //项目详情
             path: '/xmxq',
             name: 'xmxq',
             component: xmxq
         },
         {
-            //引入路径
+            //发布广场
             path: '/fbgc',
             name: 'fbgc',
             component: fbgc
         },
         {
+            // 主页
             path: '/page',
             name: 'page',
             component: page
         },
         {
+            // 模板
             path: '/muban',
             name: 'muban',
             component: muban
         },
         {
+            // 个人资料
             path: '/gerenziliao',
             name: 'gerenziliao',
             component: gerenziliao
         },
         {
-            path: '/page',
-            name: 'page',
-            component: page
-        },
-        {
-            path: '/gerenziliao',
-            name: 'gerenziliao',
-            component: gerenziliao
-        },
-
-        // {
-        //   path: '/top',
-        //   name: 'top',
-        //   component: top
-        // }
-        {
+            // 梁勇登录
             path: '/submit',
             name: 'submit',
             component: submit
         },
         {
+            // 发布需求
             path: '/IssueDemand',
             name: 'IssueDemand',
             component: IssueDemand
         },
         {
-            path: '/project',
-            name: 'project',
-            component: project
-        },
-        {
+            // 完善
             path: '/wanshan',
             name: 'wanshan',
             component: wanshan
         },
         {
+            // 优秀程序员
             path: '/programmer',
             name: 'programmer',
             component: programmer
         },
         {
-            path: '/fbgc',
-            name: 'fbgc',
-            component: fbgc
-        },
-        {
-            path: '/muban',
-            name: 'muban',
-            component: muban
-        },
-        {
-            path: '/gerenziliao',
-            name: 'gerenziliao',
-            component: gerenziliao
-        },
-        {
+            // 发布需求
             path: '/test',
             component: () =>
                 import ('@/views/dfy/IssueDemand1')

@@ -9,7 +9,8 @@
   action="#"
   :http-request="fileuploadfm"
   list-type="picture-card"
-  :auto-upload="false">
+  :auto-upload="false"
+  >
     <i slot="default" class="el-icon-plus"></i>
     <div slot="file" slot-scope="{file}">
       <img
@@ -173,13 +174,13 @@
 <style>
 .setting-main{
     width: 830px;
-    height: 720px;
+    height: 600px;
     border: 1px solid black;
     margin:auto;
 }
 .ui-form{
 width:768px;
-height: 700px;
+height: 600px;
 border: 1px solid black;
 margin:30px auto;
 }
