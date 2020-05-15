@@ -6,10 +6,10 @@
         <el-form ref="dlform" :model="dlform" :rules="dlrules"  label-width="80px" :hide-required-asterisk=true>
 
             <el-form-item label="邮箱:"  prop="email" >
-               <el-input v-model="dlform.email"  clearable></el-input>
+               <el-input v-model="dlform.email" placeholder="请输入邮箱" clearable></el-input>
             </el-form-item>
-            <el-form-item label="密码:" prop="mima" >
-                <el-input v-model="dlform.mima" clearable show-password @keyup.enter.native="keyupEnter"></el-input>
+            <el-form-item label="密码:"  prop="mima" >
+                <el-input v-model="dlform.mima" placeholder="请输入密码" clearable show-password @keyup.enter.native="keyupEnter"></el-input>
             </el-form-item>
                 <!-- <el-button type="primary" size="medium"  @click="submitForm('dlform')">立即登录</el-button> -->
                 <!-- <el-button type="success" size="medium" plain @click="submitForm('dlform')">立即注册</el-button> -->
