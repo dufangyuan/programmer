@@ -1,108 +1,60 @@
 <template>
-
-    <div>
-        
-        <el-container>
-  <el-header style="height:70px; ">
-    <div class="a1">
-      <ul class="navigation bar">
-        <li class="navigation logo"></li>
-        <li class="navigation page"> <a href="">首页</a></li>
-         <li class="navigation page"><a href="">云端工作</a></li>
-          <li class="navigation page"><a href="">程序员</a></li>
-          <el-dropdown class="st">
-  <span class="el-dropdown-link">
-    更多服务<i class="el-icon-arrow-down el-icon--right"></i>
-  </span>
-  <el-dropdown-menu slot="dropdown">
-    <el-dropdown-item>
-      <img :src="imgUrl" style="width:30px; height:28px;">技术圈
-      </el-dropdown-item>
-    <el-dropdown-item>
-      <img :src="imgUrl1" style="width:30px; height:28px;">进制数据
-      </el-dropdown-item>
-    <el-dropdown-item>
-        <img :src="imgUrl2" style="width:30px; height:28px;">招聘兼职
-      </el-dropdown-item>
-    <el-dropdown-item>
-      <img :src="imgUrl3" style="width:30px; height:28px;">解决方案
-      </el-dropdown-item>
-  </el-dropdown-menu>
-</el-dropdown>
-          <li class="navigation register"><a href="">登录</a></li>
-          <li class="navigation register"><a href="">注册</a></li>
-      </ul>
-      </div>
+    <div>     
+<el-container>
+  <el-header style="height:60px; " class="toubu">
+<el-menu
+  :default-active="activeIndex2"
+  class="el-menu-demo topnav"
+  mode="horizontal"
+  @select="handleSelect"
+  background-color="#545c64"
+  text-color="#fff"
+  active-text-color="#ffd04b">
+  <el-menu-item index="1">首页</el-menu-item>
+  <el-menu-item index="2">云端工作</el-menu-item>
+  <el-menu-item index="3">程序员</el-menu-item>
+  <el-submenu index="2">
+    <template slot="title">更多服务</template>
+    <el-menu-item index="2-1">技术圈</el-menu-item>
+    <el-menu-item index="2-2">进制数据</el-menu-item>
+    <el-menu-item index="2-3">兼职招聘</el-menu-item>
+    <el-menu-item index="2-3">解决方案</el-menu-item>
+  </el-submenu>
+</el-menu>
   </el-header>
-  
 </el-container>
     </div>
 </template>
 <script>
 export default {
-data(){
-        return {
-            imgUrl:require("../assets/fengche.svg"),
-             imgUrl1:require("../assets/shuju.svg"),
-             imgUrl2:require("../assets/zhaopin.svg"),
-             imgUrl3:require("../assets/jiejue.svg"),
-        }
-           }
+  data(){
+      return {
+        activeIndex: '1',
+        activeIndex2: '1',
+         restaurants: [],
+        state: ''
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+  }
 }
 </script>
 
 <style>
-.el-header{
-     background-color: #B3C0D1;
-     color: #fff;
-    /* text-align: center; */
-    line-height: 70px;
+  .toubu {
+    background-color: rgb(84, 92, 100);
+    color: #333;
+    line-height: 60px;
+    padding:0px 0px;
   }
-  .el-header a{
-    text-decoration: none;
-    color: #fff;
-  }
-  .bar{
+  .el-menu-demo{
     width: 70%;
-    height: 68px;
-    border: 1px solid black;
     margin: auto;
   }
-  .logo{
-         width: 140px;
-         height: 68px;
-         border: 1px solid black;
-         overflow: hidden;
-         float: left;
-  }
-  .page{
-    width: 90px;
-    height: 68px;
-    border: 1px solid black;
-    overflow: hidden;
-    float: left;
-    line-height: 68px;
-    text-align: center;
-    
-  }
-  .register{
-     width: 90px;
-    height: 68px;
-    border: 1px solid black;
-    overflow: hidden;
-    float: right;
-    line-height: 68px;
-    text-align: center;
-    
-  }
-  .el-dropdown-link {
-    cursor: pointer;
-    color: #fff;
-  }
-  .el-icon-arrow-down {
-    font-size: 12px;
-  }
-  .st{
-    margin-top: 0px;
+  .topnav{
+    position: relative;
   }
 </style>

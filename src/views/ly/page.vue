@@ -1,9 +1,9 @@
 <template>
   <div>
     <top></top>
-    <el-main style="height:3550px;">
-      <el-carousel height="200px" direction="vertical" :autoplay="false">
-        <el-carousel-item v-for="item in 3" :key="item">
+    <el-main style="height:3550px;" class="zhongjian">
+      <el-carousel height="200px" direction="vertical" :autoplay="false" class="luobotu">
+        <el-carousel-item v-for="item in 3" :key="item" class="lunbotu1">
           <img :src="imgArr[item-1]" style="width:100%; height:550px;"/>
         </el-carousel-item>
         <div class="topcontent">
@@ -199,24 +199,21 @@
         </div>
       </div>
     </el-main>
-    <bottom></bottom>
   </div>
 </template>
 <script></script>
 
 <script>
-// import top from "../../components/top";
-// import bottom from "../../components/bottom";
+import top from "../../components/top";
 export default {
   components: {
     top,
-    bottom
   },
   data() {
     return {
       op2: require("../../assets/duigou.svg"),
       imgArr:[
-            //  require("../../assets/lunbo.png"),
+             require("../../assets/fengjing.jpg"),
       ]
     };
   },
@@ -235,18 +232,18 @@ export default {
 </script>
 
 <style>
-.el-main {
+.zhongjian {
   background-color: #fff;
   color: #333;
   /* text-align: center;
     line-height: 160px; */
+     padding:0px 0px;
 }
-.el-carousel {
+.luobotu {
   width: 100%;
   height: 550px;
-  border: 1px solid black;
 }
-.el-carousel__item {
+.lunbotu1 {
   width: 100%;
   height: 550px;
 }
@@ -340,7 +337,6 @@ export default {
 .home-box {
   width: 100%;
   height: 738px;
-  border: 1px solid black;
 }
 .title-box {
   position: relative;
@@ -536,7 +532,6 @@ export default {
 .home1-box {
   width: 100%;
   height: 700px;
-  border: 1px solid black;
 }
 .home1-box .box-ly {
   width: 1000px;
@@ -722,7 +717,6 @@ export default {
     width: 100%;
     height: 564px;
     background: rgba(250,250,250,1);
-    border: 1px solid black;
 }
 .box-title{
 position: relative;

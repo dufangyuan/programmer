@@ -53,7 +53,7 @@
        <div class="navtop">
             <div :class="step==0  ? class1 : class2" @click="changecolor(0)">个人资料</div>
             <div :class="step==1  ? class1 : class2" @click="changecolor(1)">工作设置</div>
-            <div :class="step==2 ? class1 : class2" @click="changecolor(2)">实名个人信息</div>
+            <div :class="step==2  ? class1 : class2" @click="changecolor(2)">实名个人信息</div>
             <div :class="step==3  ? class1 : class2" @click="changecolor(3)">修改密码</div>
             <!-- <div :class="step==4  ? class1 : class2" @click="changecolor(3)">修改头像</div>
             <div :class="step==5  ? class1 : class2" @click="changecolor(3)">绑定账户</div> -->
@@ -70,7 +70,9 @@
                 <people6></people6>
             </div>
             <div v-if="step==3">
-                <people7></people7>
+                <xiugai>
+
+                </xiugai>
             </div>
 
         </div>
@@ -91,7 +93,7 @@ import people2 from "./guyong";
 import people3 from "./yunduan";
 import people4 from "./jishuxinyong";
 import people6 from "./shiminggerenxinxi";
-import people7 from "./xiugaimima";
+import xiugai from "./xiugaimima";
 import top from "@/components/top";
 export default {
   components: {
@@ -102,7 +104,7 @@ export default {
     people3,
     people4,
     people6,
-     people7,
+    xiugai,
     },
   data() {
     return {
@@ -193,4 +195,11 @@ export default {
 .contentarea  .leftb{
   margin:23px 0px;
 }
+.el-tabs__item{
+  font-size: 18px;
+  height: 60px;
+  line-height: 60px;
+
+}
+
 </style>
