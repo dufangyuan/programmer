@@ -208,6 +208,7 @@ import top from "../../components/top";
 export default {
   components: {
     top,
+    // bottom
   },
   data() {
     return {
