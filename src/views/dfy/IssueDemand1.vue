@@ -1,5 +1,6 @@
 <template>
   <div>
+    <top></top>
     <el-row type="flex" justify="center">
       <el-col :span="12">
         <h3 style="color: #303133;text-align:center;margin-top:15px;margin-bottom:15px">发布新项目需求</h3>

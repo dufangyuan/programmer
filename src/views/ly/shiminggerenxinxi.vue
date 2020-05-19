@@ -4,93 +4,20 @@
           <div class="ui-form">
             <img src="../../assets/yonghu1.svg" alt="" style="width:20px; height:20px;">
             <h4>实名个人信息</h4>
-            <div class="zhengjianzhao">
-<el-upload
-  action="#"
-  :http-request="fileuploadfm"
-  list-type="picture-card"
-  :auto-upload="false"
-  >
-    <i slot="default" class="el-icon-plus"></i>
-    <div slot="file" slot-scope="{file}">
-      <img
-        class="el-upload-list__item-thumbnail"
-        :src="file.url" alt=""
-      >
-      <span class="el-upload-list__item-actions">
-        <span
-          class="el-upload-list__item-preview"
-          @click="handlePictureCardPreview(file)"
-        >
-          <i class="el-icon-zoom-in"></i>
-        </span>
-        <span
-          v-if="!disabled"
-          class="el-upload-list__item-delete"
-          @click="handleDownload(file)"
-        >
-          <i class="el-icon-download"></i>
-        </span>
-        <span
-          v-if="!disabled"
-          class="el-upload-list__item-delete"
-          @click="handleRemove(file)"
-        >
-          <i class="el-icon-delete"></i>
-        </span>
-      </span>
-    </div>
-</el-upload>
-<el-upload
-:http-request="fileuploadfm"
-  action="#"
-  list-type="picture-card"
-  :auto-upload="false">
-    <i slot="default" class="el-icon-plus"></i>
-    <div slot="file" slot-scope="{file}">
-      <img
-        class="el-upload-list__item-thumbnail"
-        :src="file.url" alt=""
-      >
-      <span class="el-upload-list__item-actions">
-        <span
-          class="el-upload-list__item-preview"
-          @click="handlePictureCardPreview(file)"
-        >
-          <i class="el-icon-zoom-in"></i>
-        </span>
-        <span
-          v-if="!disabled"
-          class="el-upload-list__item-delete"
-          @click="handleDownload(file)"
-        >
-          <i class="el-icon-download"></i>
-        </span>
-        <span
-          v-if="!disabled"
-          class="el-upload-list__item-delete"
-          @click="handleRemove(file)"
-        >
-          <i class="el-icon-delete"></i>
-        </span>
-      </span>
-    </div>
-</el-upload>
-</div>
             <p class="inline-left">
                 身份证正反面
             </p>
-            <!-- <p class="inline-right">
+             <p class="inline-right">
                 身份证反面
-            </p> -->
+            </p>
             
-          <!-- <el-upload action :http-request="fileuploadzm" class="zzm">
+          <el-upload action :http-request="fileuploadzm" class="zzm">
             <i class="el-icon-plus"></i>
           </el-upload>
           <el-upload
             action :http-request="fileuploadfm" class="ffm">
             <i class="el-icon-plus"></i>
-          </el-upload> -->
+          </el-upload>
  <div class="inline-filed">
     <el-form ref="formaas" :model="formaas" :rules="rules" label-width="80px">
             <el-form-item label="身份证号" prop="card">
@@ -112,14 +39,10 @@
      export default {
     data() {
       return {
-        dialogImageUrl: '',
-        dialogVisible: false,
           formaas: {
             card:'',
             name:''
           },
-           dialogImageUrl: '',
-           disabled: false,
         filelistzm:{},
         filelistfm:{},
         rules: {
@@ -135,16 +58,6 @@
       };
     },
     methods: {
-       handleRemove(file) {
-        console.log(file);
-      },
-      handlePictureCardPreview(file) {
-        this.dialogImageUrl = file.url;
-        this.dialogVisible = true;
-      },
-      handleDownload(file) {
-        console.log(file);
-      },
       fileuploadzm(zm){
         console.log(zm);
         this.filelistzm=zm.file
@@ -164,9 +77,6 @@
                    console.log(res);
           })
        },
-       onSubmit() {
-        console.log('submit!');
-      },
     }
   }
 </script>
@@ -175,13 +85,13 @@
 .setting-main{
     width: 830px;
     height: 600px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin:auto;
 }
 .ui-form{
 width:768px;
 height: 600px;
-border: 1px solid black;
+/* border: 1px solid black; */
 margin:30px auto;
 }
 .ui-form img{
@@ -243,10 +153,5 @@ margin:30px auto;
     margin: 10px;
     float: left;
   }
-  .zhengjianzhao{
-    width: 768px;
-    height: 300px;
-    /* border: 1px solid black; */
-    position: relative;
-  }
+  
 </style>

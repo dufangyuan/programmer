@@ -12,17 +12,17 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/dfy': {
-                target: 'http://106.13.164.214:8000',
+                target: 'http://192.168.31.247:8000',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/dfy': 'http://106.13.164.214:8000'
+                    '^/dfy': 'http://192.168.31.247:8000'
                 }
             },
             '/kz': {
                 target: 'http://192.168.1.112:9999',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/kz': 'http://192.168.1.100:9999'
+                    '^/kz': 'http://192.168.31.254:9999'
                 }
             },
             '/wb': {
@@ -33,10 +33,10 @@ module.exports = {
                 }
             },
             '/api': {
-                target: 'http://106.13.164.214:8000',
+                target: 'http://192.168.31.247:8000',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/api': 'http://106.13.164.214:8000'
+                    '^/api': 'http://192.168.31.247:8000'
                 }
             }
         },

@@ -71,6 +71,13 @@ export default new Router({
             name: 'gerenziliao',
             component: gerenziliao
         },
+
+        // {
+        //   path: '/top',
+        //   name: 'top',
+        //   component: top
+        // }
+
         {
             // 梁勇登录
             path: '/submit',
@@ -94,12 +101,6 @@ export default new Router({
             path: '/programmer',
             name: 'programmer',
             component: programmer
-        },
-        {
-            // dibu
-            path: '/dibu',
-            name: 'dibu',
-            component: dibu
         },
         {
             // 发布需求

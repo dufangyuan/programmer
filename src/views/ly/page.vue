@@ -215,6 +215,8 @@ export default {
       op2: require("../../assets/duigou.svg"),
       imgArr:[
              require("../../assets/fengjing.jpg"),
+              require("../../assets/9k.jpg"),
+               require("../../assets/Y3.jpg"),
       ]
     };
   },
