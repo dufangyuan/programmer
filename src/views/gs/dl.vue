@@ -80,12 +80,15 @@ export default {
             password: this.dlform.mima,
          }).then(res=>{
              console.log(res)
-             var codes=res.data.code
+             var codes=res.data.code;
              if(codes===200){
                 this.$message({
                 message: '登陆成功',
                 type: 'success'
-                });
+                }); 
+                var userX=res.data.extend.user;
+                var storage=window.localStorage;
+                storage.setItem("userinfo",JSON.stringify(userX));
              }else{
                this.$message.error('账号或密码输入错误');
                this.$notify({

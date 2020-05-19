@@ -92,13 +92,13 @@
 .grass{
      width: 830px;
     height: 600px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin:auto;
 }
 .grass-main{
 width:768px;
 height: 600px;
-border: 1px solid black;
+/* border: 1px solid black; */
 margin:30px auto;
 }
 .grass-main img{

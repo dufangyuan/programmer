@@ -15,8 +15,58 @@
                     </div>
                 </div>
             <!-- 详情 -->
-                <div>
+                <div class="xqbox">
+                    <div class="tx">
+                        <h3 class="biao">注册注册成注册注册</h3>
+                        <span class="lei">诸恶注册护照u住注册啊</span>
+                        <div class="jdt">
+                            <el-steps :active="3">
+                                <el-step title="任务发布" icon="el-icon-goods"></el-step>
+                                <el-step title="任务进行中" icon="el-icon-refresh"></el-step>
+                                <el-step title="任务结束" process-status="success" icon="el-icon-circle-check"></el-step>
+                            </el-steps>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- 一个红长方形 -->
+                        <div>
+                            <div class="titles">
+                                <img :src="cfxs" alt="">
+                                <span >参加要求</span>
+                            </div>
+                            <div class="cnx">
+                                <div class="cn">
+                                    <p>承诺：保证完成</p>
+                                </div>
+                                <div class="cn">
+                                    <p>承诺：保证售后</p>
+                                </div>
+                                <div class="cn">
+                                    <p>承诺：保证原创</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 一个红长方形 -->
+                        <div>
+                            <div class="titles">
+                                <img :src="cfxs" alt="">
+                                <span >任务需求</span>
+                            </div>
+                            <div class="rwxq">
+                                <p></p>
+                            </div>
+                        </div>
+                        <!-- 一个红长方形 -->
+                        <div>
+                            <div class="titles">
+                                <img :src="cfxs" alt="">
+                                <span >任务附件</span>
+                            </div>
+                            <div class="rwfj">
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             <!-- 提示 -->
                 <div class="tishi">
@@ -35,10 +85,17 @@
                 </div>
                 <div>
                     <div v-if="step==0">
-
+                        <ul class="uls" >
+                            <li v-for="(item,index) in geci" :key="index" >
+                                {{item.item}}
+                            </li>
+                        </ul>
                     </div>
                     <div v-if="step==1">
-                    
+                        <ul class="uls">
+                            <li v-for="(item,index) in geci2" :key="index" >{{item.item}}</li>
+
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -56,17 +113,61 @@
                 step:0,
                 class1:"item itemactive",
                 class2:"item",
+                cfxs:require('@/assets/cfx.png'),
+                geci:[
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                    {item:'快乐池塘栽种了',index:1},
+                ],
+                geci2:[
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+                    {item:'酷酷的眼神没有那只青蛙能比美',index:1},
+
+                ]
             }
         },
         methods:{
             changecolor(n){
                 this.step=n;
+            },
+            getdate(){
+                this.axios.get('/wb/demand/demands',{
+                    params:{
+                        demandId:das
+                    }
+                }).then(res=>{
+                    console.log(res);
+                })
             }
         }
     }
 </script>
 
 <style >
+
 .box{   
     width: 100%;
     overflow: hidden;
@@ -180,5 +281,85 @@
     float: left;
     font-size: 14px;
 
+}
+/* 详情 */
+.xqbox{
+    width: 950px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.titles{
+    height: 40px;
+    margin: 10px 0; 
+    display: flex;
+    justify-content: flex-start;
+}
+.xqbox .titles span{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 40px;
+}
+/* 承诺 */
+.cn{
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #999999;
+    color: #999999;
+    /* float: left; */
+    margin-left: 10px;
+    text-align: center;
+    /* margin: 5px 10px 5px 15px; */
+}
+.cn p:hover {
+    border: 1px solid #1782D9;
+    background-color: #1782D9;
+    color: white;
+}
+.cnx{
+    display: flex;
+    justify-content: flex-start;
+}
+.rwxq{
+    height: 80px;
+}
+.rwxq p{
+    margin-left: 15px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+}
+.rwfj{
+    height: 80px;
+}
+/* 右边新闻 */
+.uls li{
+    list-style: none;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+}
+/* 头像 */
+.tx{
+    width: 950px;
+    height: 200px;
+    /* background-color: red; */
+    margin: 0 auto;
+}
+
+.biao{
+    margin-left: 20px;
+}
+.lei{
+    font-size: 12px;
+    margin-left: 20px;
+}
+/* 进度条 */
+.jdt{
+    width: 500px;
+    margin: 40px 0 10px 20px;
 }
 </style>

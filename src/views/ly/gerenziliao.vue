@@ -3,7 +3,7 @@
     <top></top>
     <el-main style="height:1550px;">
         <div class="inn-work">
-    <el-tabs :tab-position="tabPosition" style="height: 700px;">
+    <el-tabs :tab-position="tabPosition" style="height: 750px;">
     <el-tab-pane label="用户管理">
       <div class="navtop">
             <div :class="step==0  ? class1 : class2" @click="changecolor(0)">待办任务(0)</div>
@@ -60,11 +60,11 @@
       </div>
       <div class="navtop-box">
             <div v-if="step==0">
-                <people>
-                </people>
+                <people8>
+                </people8>
             </div>
             <div v-if="step==1">
-                 <people1></people1>
+                 <people7></people7>
             </div>
             <div v-if="step==2">
                 <people6></people6>
@@ -94,6 +94,8 @@ import people3 from "./yunduan";
 import people4 from "./jishuxinyong";
 import people6 from "./shiminggerenxinxi";
 import xiugai from "./xiugaimima";
+import people7 from "./gongzuoshezhi";
+import people8 from "./jibenxinxi";
 import top from "@/components/top";
 export default {
   components: {
@@ -105,6 +107,8 @@ export default {
     people4,
     people6,
     xiugai,
+    people7,
+    people8,
     },
   data() {
     return {
