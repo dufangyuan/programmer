@@ -19,17 +19,17 @@ module.exports = {
                 }
             },
             '/kz': {
-                target: 'http://192.168.1.100:9999',
+                target: 'http://192.168.1.112:9999',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/kz': 'http://192.168.1.100:9999'
                 }
             },
             '/wb': {
-                target: 'http://106.13.164.214:8000',
+                target: 'http://192.168.31.247:8000',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/wb': 'http://106.13.164.214:8000'
+                    '^/wb': 'http://192.168.31.247:8000'
                 }
             },
             '/api': {

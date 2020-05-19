@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/dfy/login'
 import gerenziliao from '@/views/ly/gerenziliao'
 import dl from '@/views/gs/dl'
@@ -13,6 +12,9 @@ import fbgc from '@/views/gs/fbgc'
 import xmxq from '@/views/gs/xmxq'
 import page from '@/views/ly/page'
 import muban from '@/views/ly/muban'
+import dibu from '@/views/gs/dibu'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -92,6 +94,12 @@ export default new Router({
             path: '/programmer',
             name: 'programmer',
             component: programmer
+        },
+        {
+            // dibu
+            path: '/dibu',
+            name: 'dibu',
+            component: dibu
         },
         {
             // 发布需求

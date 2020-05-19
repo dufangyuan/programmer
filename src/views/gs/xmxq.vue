@@ -1,14 +1,15 @@
 <template>
     <div class="box">
-        <div class="dbox">
-            <div class="xbox">
-            <!-- 悬赏 -->
+        <div class="dbox" >
+            <div class="xbox" >
+                <!-- 悬赏 -->
                 <div class="jine">
                     <div class="xuanshang">
                             悬赏
                     </div>
                     <div class="qian">
-                            ￥123
+                        ￥{{xxzl.demandBudget}}
+                            <!-- ￥{{item.demand_budget}} -->
                     </div>
                     <div class="danbao">
                             诚信可靠，平台担保
@@ -17,10 +18,11 @@
             <!-- 详情 -->
                 <div class="xqbox">
                     <div class="tx">
-                        <h3 class="biao">注册注册成注册注册</h3>
-                        <span class="lei">诸恶注册护照u住注册啊</span>
+                        <h2 class="biao">{{xxzl.demandName}}</h2>
+                        <span class="lei">{{xxzl.demandType}}</span>
                         <div class="jdt">
-                            <el-steps :active="3">
+                            <p class="rwjd">任务进度:</p>
+                            <el-steps :active="state">
                                 <el-step title="任务发布" icon="el-icon-goods"></el-step>
                                 <el-step title="任务进行中" icon="el-icon-refresh"></el-step>
                                 <el-step title="任务结束" process-status="success" icon="el-icon-circle-check"></el-step>
@@ -53,7 +55,7 @@
                                 <span >任务需求</span>
                             </div>
                             <div class="rwxq">
-                                <p></p>
+                                <p>{{xxzl.demandDetail}}</p>
                             </div>
                         </div>
                         <!-- 一个红长方形 -->
@@ -63,7 +65,8 @@
                                 <span >任务附件</span>
                             </div>
                             <div class="rwfj">
-
+                                <el-link class="xiazai" :href='xxzl.demandFile'>点击下载附件</el-link>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +97,7 @@
                     <div v-if="step==1">
                         <ul class="uls">
                             <li v-for="(item,index) in geci2" :key="index" >{{item.item}}</li>
-
+                        
                         </ul>
                     </div>
                 </div>
@@ -110,10 +113,13 @@
         },
         data(){
             return {
+                state:0,
                 step:0,
                 class1:"item itemactive",
                 class2:"item",
                 cfxs:require('@/assets/cfx.png'),
+                xxzl:'',
+                id:'',
                 geci:[
                     {item:'快乐池塘栽种了',index:1},
                     {item:'快乐池塘栽种了',index:1},
@@ -149,17 +155,27 @@
                 ]
             }
         },
+        mounted(){
+            this.getdate();
+        },
+        created(){
+            console.log(this.$route);
+            this.id=this.$route.query.info;
+            console.log(this.id);
+            
+        },
         methods:{
             changecolor(n){
                 this.step=n;
             },
+
             getdate(){
-                this.axios.get('/wb/demand/demands',{
-                    params:{
-                        demandId:das
-                    }
-                }).then(res=>{
-                    console.log(res);
+                this.axios.get('/wb/demand/demand/' + this.id
+                ).then(res=>{
+                    // console.log(res)
+                    this.xxzl=res.data.extend.demand
+                    this.state=this.xxzl.demandState+1;
+                    console.log(this.xxzl);
                 })
             }
         }
@@ -176,13 +192,14 @@
 }
 .dbox{
     width: 1200px;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: #D1E9FE;
     margin: 20px auto;
     position: relative;
 }
 .xbox{
     width:1000px ;
+    /* height: 1000px; */
     overflow: hidden;
     /* margin: 20px auto; */
     background-color: white;
@@ -307,7 +324,7 @@
     border: 1px solid #999999;
     color: #999999;
     /* float: left; */
-    margin-left: 10px;
+    margin-left: 25px;
     text-align: center;
     /* margin: 5px 10px 5px 15px; */
 }
@@ -324,7 +341,7 @@
     height: 80px;
 }
 .rwxq p{
-    margin-left: 15px;
+    margin-left: 25px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 10;
@@ -354,12 +371,22 @@
     margin-left: 20px;
 }
 .lei{
-    font-size: 12px;
+    font-size: 14px;
     margin-left: 20px;
+    color: #aaaaaa;
 }
 /* 进度条 */
 .jdt{
     width: 500px;
     margin: 40px 0 10px 20px;
+}
+.rwjd{
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+/* 下载 */
+.xiazai{
+    margin-left: 25px;
 }
 </style>

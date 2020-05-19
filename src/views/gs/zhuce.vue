@@ -20,10 +20,10 @@
           <el-input  v-model="zcform.username" autocomplete="off"  placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="密码:"  prop="pass">
-          <el-input type="password" v-model="zcform.pass" placeholder="请输入密码" autocomplete="off"></el-input>
+          <el-input type="password" v-model="zcform.pass" placeholder="请输入密码" clearable show-password autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="确认密码:"  prop="checkPass">
-          <el-input type="password" v-model="zcform.checkPass" placeholder="请确认密码" autocomplete="off"></el-input>
+          <el-input type="password" v-model="zcform.checkPass" placeholder="请确认密码" clearable show-password autocomplete="off"></el-input>
         </el-form-item>
 
         <el-form-item  >
@@ -43,6 +43,8 @@ export default {
     var validatePass = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入密码"));
+      }else if(!/^(?:\d+|[a-zA-Z]+|[!@#$%^&*]+)$/.test(value)){
+        callback(new error("密码格式不正确，请输入数字、字母或者特殊字符"));
       } else {
         if (this.zcform.checkPass !== "") {
           this.$refs.zcform.validateField("checkPass");
