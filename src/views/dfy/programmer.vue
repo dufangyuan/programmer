@@ -1,4 +1,6 @@
 <template>
+<div>
+  <top></top>
   <div class="pro_box">
     <el-container>
       <el-header>
@@ -72,9 +74,14 @@
     </el-container>
     <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
+  </div>
 </template>
 <script>
+import top from "@/components/top"
 export default {
+   components:{
+    top,
+    },
   data() {
     return {
       cxyArr: [
@@ -160,7 +167,7 @@ export default {
   position: relative;
 }
 .el-container {
-  margin: 100px auto;
+  margin: 50px auto;
   width: 1000px;
 }
 .el-header p {

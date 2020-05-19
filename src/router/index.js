@@ -7,7 +7,6 @@ import dl from '@/views/gs/dl'
 import zhuce from '@/views/gs/zhuce'
 import submit from '@/views/ly/submit'
 import IssueDemand from '@/views/dfy/IssueDemand'
-import project from '@/views/dfy/project'
 import wanshan from '@/views/dfy/wanshan'
 import programmer from '@/views/dfy/programmer'
 import fbgc from '@/views/gs/fbgc'
@@ -67,11 +66,6 @@ export default new Router({
             name: 'gerenziliao',
             component: gerenziliao
         },
-        {
-            path: '/gerenziliao',
-            name: 'gerenziliao',
-            component: gerenziliao
-        },
 
         // {
         //   path: '/top',
@@ -87,11 +81,6 @@ export default new Router({
             path: '/IssueDemand',
             name: 'IssueDemand',
             component: IssueDemand
-        },
-        {
-            path: '/project',
-            name: 'project',
-            component: project
         },
         {
             path: '/wanshan',
@@ -112,11 +101,6 @@ export default new Router({
             path: '/muban',
             name: 'muban',
             component: muban
-        },
-        {
-            path: '/gerenziliao',
-            name: 'gerenziliao',
-            component: gerenziliao
         },
         {
             path: '/test',
